@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--
+      Author: Caique Trivelato
+      Date: 4/16/2024
+
+      Filename: PrimeNumbers.html
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>Prime Numbers</title>
+   <link rel="stylesheet" href="banffstyles.css">
+</head>
+
+<body>
+	<header>
+	<h1>
+	Prime Numbers Table List
+	</h1>
+	</header>
+	
+	<table title="Prime Numbers from 1 to 999">
+		<h3>Prime Numbers (From 1 to 999)</h3>
+
+	
+	<script>
+	var primeNumbers = [];
+	var number = 2;
+	var row = 1;
+	var i = 0;
+	var counter = 0;
+	
+	function calcPrimeNumbers() {
+		while (number > 0 && number < 1000)
+		{	
+			if (testPrimeNumber(number))
+			{
+				primeNumbers [counter] = number;
+				counter++;
+				
+				if (row < 18)
+				{
+					if (i == 0)
+					{
+						document.write("<tr></tr>");
+					}
+					
+					if (i < 10) 
+					{
+						document.write("<td>" + number + "</td>");
+						i++;
+					}
+					
+					if (i == 10)
+					{	
+						row ++;
+						i = 0;
+					}
+				}
+			}
+			number++;
+		}
+	}
+	
+	function testPrimeNumber(testingNumber)
+	{
+		for (var i = 0; i < counter; i++)
+		{	
+			var divisor = primeNumbers[i];
+			if(testingNumber % divisor == 0)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	calcPrimeNumbers();
+	
+	</script>
+	
+	</table>
+</body>
+</html>

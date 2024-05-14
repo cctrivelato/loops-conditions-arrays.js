@@ -1,0 +1,69 @@
+<html>
+<head>
+   <!--
+      JavaScript 6th Edition
+      Chapter 3
+      Project 3-3
+
+      Author: Caique Trivelato	
+      Date: 4/16/2024
+
+      Filename: GasMileage.html
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>Project 3-3</title>
+   <link rel="stylesheet" href="styles.css" />
+   <script src="modernizr.custom.05819.js"></script>
+</head>
+
+<body>
+   <header>
+      <h1>
+         Project 3-3
+      </h1>
+   </header>
+
+   <article>
+      <h2>Calculating Miles per Gallon</h2>
+      <form>
+         <input type="text" id="item1" value="0" />
+         <label for="item1">Starting Mileage (m)</label>
+         <input type="text" id="item2" value="0" />
+         <label for="item2">Ending Mileage (m)</label>
+         <input type="text" id="item3" value="0" />
+         <label for="item3">Gallons Used (gal)</label>
+		 
+		 <input type="button" value="Calculate" id="click" />
+      </form>
+      <div>
+		<h1>The value calculated is:</h1>
+         <h1 type="text" id="item4" ></h1>
+         <h4 for="item4">miles per gallon (MPG)</h4>
+      </div>
+   </article>
+   <script>
+		function calcMPG () {
+			var startMiles = parseInt(document.getElementById("item1").value);
+			var endMiles = parseInt(document.getElementById("item2").value);
+			var gallons = parseInt(document.getElementById("item3").value);
+				
+			if (isNaN(startMiles) || isNaN(endMiles) || isNaN(gallons)){
+				alert("Please, make sure you insert only numbers.");
+			} else {
+				if (gallons == 0){
+					alert("Please, make sure that the value for gallons is greater than 0.");
+				} else {
+					var milesPerGallons = (endMiles - startMiles) / gallons;
+					document.getElementById("item4").innerHTML = milesPerGallons;
+				}
+			}
+		}
+		
+		var submitButton = document.getElementById("click");
+		
+		submitButton.addEventListener("click", calcMPG, false);
+		
+   </script>
+</body>
+</html>
